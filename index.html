@@ -96,6 +96,7 @@
 
   /* ---------- PROGRAMMA ---------- */
   .programma{background:var(--cream);}
+  .programma-note{max-width:640px;margin:28px auto 0;text-align:center;font-size:15px;color:var(--text);line-height:1.7;font-style:italic;}
   .timeline{display:flex;justify-content:space-between;align-items:flex-start;max-width:920px;margin:36px auto 0;flex-wrap:wrap;gap:10px;}
   .tl-item{flex:1;min-width:120px;text-align:center;position:relative;}
   .tl-item .ic{color:var(--rose-accent);height:42px;display:flex;align-items:center;justify-content:center;}
@@ -153,10 +154,12 @@
   .gift-ic svg{width:30px;height:30px;}
   .faq{text-align:left;}
   .faq h4{text-align:center;}
-  .faq ol{list-style:none;counter-reset:f;}
-  .faq li{counter-increment:f;font-size:12.5px;color:var(--muted);padding:7px 22px 7px 22px;position:relative;border-bottom:1px solid #eadfce;}
-  .faq li::before{content:counter(f) ".";position:absolute;left:0;color:var(--ink);}
-  .faq li::after{content:"+";position:absolute;right:4px;color:var(--rose-accent);font-size:15px;}
+  .faq details{border-bottom:1px solid #eadfce;}
+  .faq details summary{list-style:none;display:flex;justify-content:space-between;align-items:center;padding:10px 4px;font-size:12.5px;color:var(--ink);cursor:pointer;font-weight:600;gap:8px;}
+  .faq details summary::-webkit-details-marker{display:none;}
+  .faq details summary::after{content:"+";color:var(--rose-accent);font-size:16px;flex-shrink:0;transition:transform .2s;}
+  .faq details[open] summary::after{content:"−";}
+  .faq details p{font-size:12.5px;color:var(--muted);padding:0 4px 12px;line-height:1.7;margin:0;}
 
   /* ---------- FOOTER ---------- */
   .footer{
@@ -242,13 +245,15 @@
     <h2 class="section-title">Programma</h2>
     <div class="heart-divider"></div>
     <div class="timeline">
-      <div class="tl-item"><div class="ic"><i data-lucide="wine"></i></div><div class="time">13:30</div><div class="lbl">Ontvangst</div></div>
-      <div class="tl-item"><div class="ic"><i data-lucide="heart-handshake"></i></div><div class="time">14:00</div><div class="lbl">Ceremonie</div></div>
-      <div class="tl-item"><div class="ic"><i data-lucide="cake"></i></div><div class="time">15:00</div><div class="lbl">Toast &amp; taart</div></div>
-      <div class="tl-item"><div class="ic"><i data-lucide="utensils-crossed"></i></div><div class="time">17:00</div><div class="lbl">Diner</div></div>
-      <div class="tl-item"><div class="ic"><i data-lucide="music"></i></div><div class="time">20:30</div><div class="lbl">Feestavond</div></div>
+      <div class="tl-item"><div class="ic"><i data-lucide="wine"></i></div><div class="time">14:15</div><div class="lbl">Ontvangst</div></div>
+      <div class="tl-item"><div class="ic"><i data-lucide="heart-handshake"></i></div><div class="time">15:00</div><div class="lbl">Ceremonie</div></div>
+      <div class="tl-item"><div class="ic"><i data-lucide="cake"></i></div><div class="time">16:00</div><div class="lbl">Taart &amp; toost</div></div>
+      <div class="tl-item"><div class="ic"><i data-lucide="glass-water"></i></div><div class="time">16:30</div><div class="lbl">Borrel</div></div>
+      <div class="tl-item"><div class="ic"><i data-lucide="utensils-crossed"></i></div><div class="time">18:00</div><div class="lbl">Diner</div></div>
+      <div class="tl-item"><div class="ic"><i data-lucide="music"></i></div><div class="time">21:00</div><div class="lbl">Feest</div></div>
       <div class="tl-item"><div class="ic"><i data-lucide="sparkles"></i></div><div class="time">00:30</div><div class="lbl">Einde feest</div></div>
     </div>
+    <p class="programma-note">Graag op tijd aanwezig, om 15:00 start namelijk de ceremonie. Voor die tijd dien je dus aanwezig te zijn en de mogelijkheid te hebben om plaats te nemen in de zaal.</p>
   </div>
 </section>
 
@@ -352,7 +357,7 @@
         <h4>Ceremoniemeester</h4>
         <img class="avatar" src="images/ceremoniemeester.jpg" alt="Ceremoniemeester Maxime">
         <p>Voor vragen op de dag zelf kun je contact opnemen met:</p>
-        <div class="name">Maxime</div>
+        <div class="name">Maxime Mounoury</div>
         <p>+34 657 894 842</p>
       </div>
       <div class="info-cell" id="rsvp">
@@ -369,15 +374,36 @@
       </div>
       <div class="info-cell faq">
         <h4>Veelgestelde vragen</h4>
-        <ol>
-          <li>Wat moet ik zelf regelen?</li>
-          <li>Kan ik overnachten?</li>
-          <li>Wat als ik graag iets wil zeggen tijdens de bruiloft?</li>
-          <li>Is de bruiloft binnen of buiten?</li>
-          <li>Mag ik een +1 meenemen naar de bruiloft?</li>
-          <li>Zijn onze kinderen welkom?</li>
-          <li>Wat zijn de parkeermogelijkheden?</li>
-        </ol>
+        <div>
+          <details>
+            <summary>Wat moet ik zelf regelen?</summary>
+            <p>Laat ons voor 1 augustus weten of je komt. Bereid je outfit voor aan de hand van de dresscode.</p>
+          </details>
+          <details>
+            <summary>Kan ik overnachten?</summary>
+            <p>Ja zeker, in het kasteel hebben we een beperkt aantal plekken beschikbaar. Daarom willen we graag van tevoren weten of mensen interesse hebben om na het feest een nacht in het kasteel te overnachten. Mocht je vragen hebben hierover dan kan je die altijd stellen aan ons (Lisa of Berend).<br><br>Als we op 1 augustus weten wie er interesse heeft, kunnen we kijken of er genoeg plek is. Mocht er te weinig plek zijn, dan hebben we ook nog een optie om de hoek van het kasteel. Dit zullen wij uiteraard dan met jullie delen.</p>
+          </details>
+          <details>
+            <summary>Wat als ik graag iets wil zeggen tijdens de bruiloft?</summary>
+            <p>We vinden het heel bijzonder als iemand iets wil bijdragen of een woordje wil doen tijdens de bruiloft. Omdat er maar beperkte ruimte in het programma is, vragen we je dit uitsluitend in overleg en na afstemming met onze ceremoniemeester (Maxime Mounoury) te doen.</p>
+          </details>
+          <details>
+            <summary>Is de bruiloft binnen of buiten?</summary>
+            <p>Onze bruiloft vindt volledig binnen plaats. Tijdens de borrel en het feest kun je natuurlijk altijd even naar buiten om een luchtje te scheppen.</p>
+          </details>
+          <details>
+            <summary>Mag ik een +1 meenemen naar de bruiloft?</summary>
+            <p>Om onze trouwdag in intieme kring te kunnen vieren, hebben wij de gastenlijst zorgvuldig samengesteld. Daarom is de uitnodiging alleen geldig voor de persoon of personen die op de uitnodiging genoemd worden.</p>
+          </details>
+          <details>
+            <summary>Zijn onze kinderen welkom?</summary>
+            <p>Hoewel jullie weten dat wij gek zijn op jullie kinderen, hebben wij ervoor gekozen om geen kinderen uit te nodigen, zodat alle volwassenen optimaal kunnen genieten van deze dag.</p>
+          </details>
+          <details>
+            <summary>Wat zijn de parkeermogelijkheden?</summary>
+            <p>Op het landgoed kan je gratis parkeren, bij het koetshuis is een parkeerterrein en ook bij het kasteel. Totaal kunnen er 150 auto's parkeren op eigen terrein en kan er ook (gratis) geparkeerd worden op de openbare weg. Er zijn laadpalen beschikbaar op beide parkeerterreinen.</p>
+          </details>
+        </div>
       </div>
     </div>
   </div>
