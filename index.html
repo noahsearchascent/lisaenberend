@@ -161,6 +161,13 @@
   .faq details[open] summary::after{content:"−";}
   .faq details p{font-size:12.5px;color:var(--muted);padding:0 4px 12px;line-height:1.7;margin:0;}
 
+  /* ---------- FOTO SLIDER ---------- */
+  .fotoslider{background:var(--ink);padding:48px 0;overflow:hidden;}
+  .fotoslider-track{display:flex;gap:12px;width:max-content;animation:slide 18s linear infinite;}
+  .fotoslider-track:hover{animation-play-state:paused;}
+  .fotoslider-track img{height:260px;width:auto;object-fit:cover;border-radius:6px;flex-shrink:0;display:block;}
+  @keyframes slide{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
   /* ---------- FOOTER ---------- */
   .footer{
     background:linear-gradient(rgba(160,110,100,.92),rgba(150,100,92,.95)),
@@ -406,6 +413,41 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ===== FOTO SLIDER ===== -->
+<section class="fotoslider">
+  <div class="fotoslider-track" id="sliderTrack">
+    <img src="images/fotos/3165D2D7-A712-4B9D-B755-BB265793CD92.JPG" alt="Lisa en Berend">
+    <img src="images/fotos/6d5036a4-951b-4535-9c30-a1a26ad3481f.JPG" alt="Lisa en Berend">
+    <img src="images/fotos/98d2ddb2-1eb4-48de-a414-1036fb0ae3b8.JPG" alt="Lisa en Berend">
+    <img src="images/fotos/IMG_0433.jpg" alt="Lisa en Berend">
+    <img src="images/fotos/IMG_1673.jpg" alt="Lisa en Berend">
+    <img src="images/fotos/IMG_1682.jpg" alt="Lisa en Berend">
+    <img src="images/fotos/IMG_3175.jpg" alt="Lisa en Berend">
+    <img src="images/fotos/IMG_4109.jpg" alt="Lisa en Berend">
+    <img src="images/fotos/IMG_4400.jpg" alt="Lisa en Berend">
+    <img src="images/fotos/IMG_6608.jpg" alt="Lisa en Berend">
+    <img src="images/fotos/IMG_6685.jpg" alt="Lisa en Berend">
+    <img src="images/fotos/IMG_7359.JPG" alt="Lisa en Berend">
+    <img src="images/fotos/IMG_7924.PNG" alt="Lisa en Berend">
+    <img src="images/fotos/d3492db0-2896-4752-8aa5-5b29686ad90c.JPG" alt="Lisa en Berend">
+    <!-- Duplicaat voor naadloze loop -->
+    <img src="images/fotos/3165D2D7-A712-4B9D-B755-BB265793CD92.JPG" alt="Lisa en Berend">
+    <img src="images/fotos/6d5036a4-951b-4535-9c30-a1a26ad3481f.JPG" alt="Lisa en Berend">
+    <img src="images/fotos/98d2ddb2-1eb4-48de-a414-1036fb0ae3b8.JPG" alt="Lisa en Berend">
+    <img src="images/fotos/IMG_0433.jpg" alt="Lisa en Berend">
+    <img src="images/fotos/IMG_1673.jpg" alt="Lisa en Berend">
+    <img src="images/fotos/IMG_1682.jpg" alt="Lisa en Berend">
+    <img src="images/fotos/IMG_3175.jpg" alt="Lisa en Berend">
+    <img src="images/fotos/IMG_4109.jpg" alt="Lisa en Berend">
+    <img src="images/fotos/IMG_4400.jpg" alt="Lisa en Berend">
+    <img src="images/fotos/IMG_6608.jpg" alt="Lisa en Berend">
+    <img src="images/fotos/IMG_6685.jpg" alt="Lisa en Berend">
+    <img src="images/fotos/IMG_7359.JPG" alt="Lisa en Berend">
+    <img src="images/fotos/IMG_7924.PNG" alt="Lisa en Berend">
+    <img src="images/fotos/d3492db0-2896-4752-8aa5-5b29686ad90c.JPG" alt="Lisa en Berend">
   </div>
 </section>
 
