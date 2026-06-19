@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RSVP — Lisa &amp; Berend</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Pinyon+Script&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --dusty-pink:#c9a09a;
+    --dusty-rose:#b07d72;
+    --chocolate:#5e4438;
+    --mocha:#8a6d5c;
+    --rose-accent:#b07d72;
+    --cream:#f6f1ea;
+    --cream-2:#efe8df;
+    --beige:#e9e0d4;
+    --ink:#4a4038;
+    --muted:#7d7268;
+    --line:#d8cdbe;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Montserrat',sans-serif;color:var(--ink);background:var(--cream);font-weight:300;line-height:1.7;font-size:14px;}
+  h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:500;}
+  .script{font-family:'Pinyon Script',cursive;font-weight:400;}
+
+  /* ---- Header ---- */
+  .rsvp-hero{
+    position:relative;text-align:center;color:#fff;padding:70px 24px 60px;
+    background:linear-gradient(rgba(60,68,58,.45),rgba(60,68,58,.55)),url('images/home.jpg') center/cover no-repeat;
+  }
+  .rsvp-hero .eyebrow{letter-spacing:5px;text-transform:uppercase;font-size:12px;opacity:.9;}
+  .rsvp-hero .names{font-family:'Pinyon Script',cursive;font-size:52px;line-height:1;margin:6px 0 2px;}
+  .rsvp-hero h1{letter-spacing:8px;text-transform:uppercase;font-size:30px;margin-top:14px;}
+  .rsvp-hero .date{margin-top:10px;font-family:'Cormorant Garamond',serif;letter-spacing:3px;font-size:15px;}
+  .back-link{position:absolute;top:22px;left:24px;color:#fff;text-decoration:none;letter-spacing:2px;font-size:11px;text-transform:uppercase;opacity:.9;}
+  .back-link:hover{opacity:1;}
+
+  /* ---- Form card ---- */
+  .form-wrap{max-width:680px;margin:-40px auto 70px;padding:0 20px;position:relative;z-index:2;}
+  .card{background:#fff;border:1px solid var(--line);box-shadow:0 16px 50px rgba(80,60,50,.12);padding:42px 40px;}
+  .note{text-align:center;color:var(--muted);font-size:13px;margin-bottom:28px;}
+  .note strong{color:var(--rose-accent);font-weight:500;}
+  .heart{text-align:center;color:var(--rose-accent);letter-spacing:6px;font-size:13px;margin:0 0 26px;}
+  .heart::before{content:"— ♥ —";}
+
+  fieldset{border:none;margin-bottom:30px;}
+  legend,.f-label{display:block;font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--ink);margin-bottom:4px;letter-spacing:1px;}
+  .f-sub{color:var(--muted);font-size:12px;margin-bottom:14px;}
+
+  input[type=text],textarea{
+    width:100%;border:none;border-bottom:1px solid var(--line);background:transparent;
+    font-family:'Montserrat',sans-serif;font-size:14px;color:var(--ink);padding:8px 2px;transition:border-color .2s;
+  }
+  input[type=text]:focus,textarea:focus{outline:none;border-color:var(--rose-accent);}
+  textarea{border:1px solid var(--line);border-radius:3px;padding:10px;resize:vertical;min-height:74px;margin-top:4px;}
+
+  /* pill choices (ja/nee) */
+  .pills{display:flex;gap:12px;flex-wrap:wrap;}
+  .pill input{position:absolute;opacity:0;pointer-events:none;}
+  .pill{flex:1;min-width:140px;cursor:pointer;}
+  .pill span{
+    display:block;text-align:center;padding:13px 16px;border:1px solid var(--line);border-radius:3px;
+    color:var(--muted);letter-spacing:1px;font-size:13px;transition:all .2s;background:var(--cream);
+  }
+  .pill input:checked + span{background:var(--rose-accent);color:#fff;border-color:var(--rose-accent);box-shadow:0 6px 16px rgba(176,125,114,.3);}
+  .pill:hover span{border-color:var(--rose-accent);}
+
+  /* menu option cards */
+  .opts{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .opt input{position:absolute;opacity:0;pointer-events:none;}
+  .opt{cursor:pointer;display:block;}
+  .opt-card{
+    display:block;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--cream);transition:all .2s;height:100%;
+  }
+  .opt-card img{width:100%;height:96px;object-fit:cover;display:block;}
+  .opt-body{display:block;padding:14px 18px 16px;}
+  .opt-tag{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--rose-accent);margin-bottom:3px;}
+  .opt-name{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--ink);line-height:1.25;}
+  .opt input:checked + .opt-card{border-color:var(--rose-accent);box-shadow:0 8px 20px rgba(176,125,114,.22);transform:translateY(-2px);}
+  .opt input:checked + .opt-card .opt-tag{font-weight:500;}
+  .opt:hover .opt-card{border-color:var(--rose-accent);}
+  .opt input:focus-visible + .opt-card{outline:2px solid var(--rose-accent);outline-offset:2px;}
+
+  .course-block + .course-block{margin-top:20px;}
+  .course-block h4{font-family:'Cormorant Garamond',serif;font-size:17px;letter-spacing:2px;text-transform:uppercase;color:var(--ink);margin-bottom:10px;}
+
+  /* collapsible attending section */
+  #attendingFields{transition:opacity .3s;}
+  #attendingFields.hidden{display:none;}
+
+  .surprise{background:var(--cream-2);border:1px solid var(--line);border-radius:4px;padding:18px 20px;margin-bottom:30px;}
+  .surprise h4{font-size:18px;color:var(--ink);margin-bottom:6px;}
+  .surprise p{color:var(--muted);font-size:12.5px;}
+  .surprise a{color:var(--rose-accent);text-decoration:none;}
+
+  .submit{
+    display:block;width:100%;background:var(--rose-accent);color:#fff;border:none;cursor:pointer;
+    font-family:'Montserrat',sans-serif;letter-spacing:3px;text-transform:uppercase;font-size:13px;
+    padding:16px;border-radius:3px;transition:background .25s;
+  }
+  .submit:hover{background:#9a6a5f;}
+  .req{color:var(--rose-accent);}
+
+  /* thank-you overlay */
+  .overlay{
+    position:fixed;inset:0;background:rgba(74,64,56,.55);display:none;align-items:center;justify-content:center;z-index:50;padding:24px;
+  }
+  .overlay.show{display:flex;}
+  .thanks{background:#fff;max-width:440px;text-align:center;padding:46px 36px;border-radius:4px;box-shadow:0 20px 60px rgba(0,0,0,.3);}
+  .thanks .script{font-size:40px;color:var(--rose-accent);}
+  .thanks h3{font-size:26px;letter-spacing:3px;text-transform:uppercase;margin:6px 0 14px;}
+  .thanks p{color:var(--muted);margin-bottom:22px;}
+
+  @media(max-width:560px){
+    .card{padding:30px 22px;}
+    .opts{grid-template-columns:1fr;}
+    .rsvp-hero .names{font-size:42px;}
+    .rsvp-hero h1{font-size:24px;letter-spacing:5px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="rsvp-hero">
+  <a href="index.html" class="back-link">← Terug</a>
+  <div class="eyebrow">Bruiloft van</div>
+  <div class="names">Lisa &amp; Berend</div>
+  <h1>RSVP</h1>
+  <div class="date">11 oktober 2026 · Kasteel Hooge Vuursche</div>
+</header>
+
+<main class="form-wrap">
+  <div class="card">
+    <p class="heart"></p>
+    <p class="note">Wat leuk dat je erbij wilt zijn! Vul dit formulier <strong>per persoon</strong> in vóór <strong>1 augustus 2026</strong>.</p>
+
+    <form id="rsvpForm" novalidate>
+
+      <!-- Naam -->
+      <fieldset>
+        <label class="f-label" for="naam">Naam <span class="req">*</span></label>
+        <input type="text" id="naam" name="naam" placeholder="Voor- en achternaam" required>
+      </fieldset>
+
+      <!-- Aanwezig -->
+      <fieldset>
+        <legend>Ben je aanwezig op 11 oktober 2026? <span class="req">*</span></legend>
+        <div class="pills">
+          <label class="pill"><input type="radio" name="aanwezig" value="Ja, ik ben aanwezig" required><span>Ja, ik ben aanwezig</span></label>
+          <label class="pill"><input type="radio" name="aanwezig" value="Helaas, ik kan niet aanwezig zijn"><span>Helaas, ik kan niet</span></label>
+        </div>
+      </fieldset>
+
+      <!-- Velden alleen voor aanwezigen -->
+      <div id="attendingFields" class="hidden">
+
+        <fieldset>
+          <legend>Menukeuze</legend>
+          <p class="f-sub">Kies bij elke gang je voorkeur.</p>
+
+          <div class="course-block">
+            <h4>Voorgerecht</h4>
+            <div class="opts">
+              <label class="opt">
+                <input type="radio" name="voorgerecht" value="Carpaccio van ossenhaas">
+                <span class="opt-card"><img src="images/Voorgerecht.jpg" alt=""><span class="opt-body"><span class="opt-tag">Optie 1</span><span class="opt-name">Carpaccio van ossenhaas</span></span></span>
+              </label>
+              <label class="opt">
+                <input type="radio" name="voorgerecht" value="Gerookte worteltartaar">
+                <span class="opt-card"><img src="images/Voorgerecht.jpg" alt=""><span class="opt-body"><span class="opt-tag">Optie 2</span><span class="opt-name">Gerookte worteltartaar</span></span></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="course-block">
+            <h4>Hoofdgerecht</h4>
+            <div class="opts">
+              <label class="opt">
+                <input type="radio" name="hoofdgerecht" value="Parelhoen rouleau">
+                <span class="opt-card"><img src="images/Hoofdgerecht.jpg" alt=""><span class="opt-body"><span class="opt-tag">Optie 1</span><span class="opt-name">Parelhoen rouleau</span></span></span>
+              </label>
+              <label class="opt">
+                <input type="radio" name="hoofdgerecht" value="Ravioli met pompoen en truffel">
+                <span class="opt-card"><img src="images/Hoofdgerecht.jpg" alt=""><span class="opt-body"><span class="opt-tag">Optie 2</span><span class="opt-name">Ravioli met pompoen en truffel</span></span></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="course-block">
+            <h4>Nagerecht</h4>
+            <div class="opts">
+              <label class="opt">
+                <input type="radio" name="nagerecht" value="Panna cotta">
+                <span class="opt-card"><img src="images/Nagerecht.jpg" alt=""><span class="opt-body"><span class="opt-tag">Optie 1</span><span class="opt-name">Panna cotta</span></span></span>
+              </label>
+              <label class="opt">
+                <input type="radio" name="nagerecht" value="Bombe van champagne mousse">
+                <span class="opt-card"><img src="images/Nagerecht.jpg" alt=""><span class="opt-body"><span class="opt-tag">Optie 2</span><span class="opt-name">Bombe van champagne mousse</span></span></span>
+              </label>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Dieetwensen -->
+        <fieldset>
+          <label class="f-label" for="dieet">Dieetwensen of allergieën</label>
+          <textarea id="dieet" name="dieet" placeholder="Bijv. vegetarisch, notenallergie, lactose-intolerant…"></textarea>
+        </fieldset>
+
+        <!-- Hotel -->
+        <fieldset>
+          <legend>Heb je interesse in een hotelovernachting?</legend>
+          <div class="pills">
+            <label class="pill"><input type="radio" name="hotel" value="Ja"><span>Ja, graag</span></label>
+            <label class="pill"><input type="radio" name="hotel" value="Nee"><span>Nee, hoeft niet</span></label>
+          </div>
+        </fieldset>
+      </div>
+
+      <!-- Opmerkingen -->
+      <fieldset>
+        <label class="f-label" for="opmerkingen">Opmerkingen</label>
+        <textarea id="opmerkingen" name="opmerkingen" placeholder="Wil je ons nog iets laten weten?"></textarea>
+      </fieldset>
+
+      <!-- Iets leuks gepland -->
+      <div class="surprise">
+        <h4>Iets leuks gepland? 🎉</h4>
+        <p>Heb je een leuke verrassing, speech of ander idee voor onze trouwdag? Vanwege de beperkte ruimte in het programma vragen we je dit vooraf af te stemmen met onze ceremoniemeester <strong>Maxime</strong> — bereikbaar via <a href="tel:+34657894842">+34&nbsp;657&nbsp;894&nbsp;842</a>.</p>
+      </div>
+
+      <button type="submit" class="submit">Verzenden</button>
+    </form>
+  </div>
+</main>
+
+<!-- Bedank-overlay -->
+<div class="overlay" id="overlay">
+  <div class="thanks">
+    <div class="script">Dankjewel!</div>
+    <h3>RSVP ontvangen</h3>
+    <p>We kijken er enorm naar uit om deze dag met je te vieren. Tot 11 oktober 2026!</p>
+    <button class="submit" onclick="document.getElementById('overlay').classList.remove('show')">Sluiten</button>
+  </div>
+</div>
+
+<script>
+  // Google Form-koppeling — inzendingen komen binnen in het gekoppelde Google Form / Sheet
+  var GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSefdmLgCqTrkwsgPOrfRq8mrp_lWcsM4WrA_GSpK4wIzvNbDg/formResponse';
+  var ENTRY = {
+    naam:        'entry.2009847755',
+    aanwezig:    'entry.1206388713',
+    voorgerecht: 'entry.1642420711',
+    hoofdgerecht:'entry.1999462187',
+    nagerecht:   'entry.364074427',
+    dieet:       'entry.1501856142',
+    hotel:       'entry.907709975',
+    opmerkingen: 'entry.290875737'
+  };
+
+  // Toon menu/hotel/dieet alleen wanneer iemand aanwezig is
+  var attendingFields = document.getElementById('attendingFields');
+  document.querySelectorAll('input[name="aanwezig"]').forEach(function(r){
+    r.addEventListener('change', function(){
+      attendingFields.classList.toggle('hidden', this.value !== 'Ja, ik ben aanwezig');
+    });
+  });
+
+  function val(sel){ var el = document.querySelector(sel); return el ? el.value : ''; }
+
+  // Verzenden
+  document.getElementById('rsvpForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var naam = document.getElementById('naam');
+    var aanwezig = document.querySelector('input[name="aanwezig"]:checked');
+    if(!naam.value.trim()){ naam.focus(); naam.style.borderColor = '#c0392b'; return; }
+    if(!aanwezig){ alert('Geef even aan of je aanwezig kunt zijn.'); return; }
+
+    // Bouw de inzending op voor Google Forms
+    var data = new URLSearchParams();
+    data.append(ENTRY.naam, naam.value.trim());
+    data.append(ENTRY.aanwezig, aanwezig.value);
+    data.append(ENTRY.voorgerecht, val('input[name="voorgerecht"]:checked'));
+    data.append(ENTRY.hoofdgerecht, val('input[name="hoofdgerecht"]:checked'));
+    data.append(ENTRY.nagerecht, val('input[name="nagerecht"]:checked'));
+    data.append(ENTRY.dieet, document.getElementById('dieet').value.trim());
+    data.append(ENTRY.hotel, val('input[name="hotel"]:checked'));
+    data.append(ENTRY.opmerkingen, document.getElementById('opmerkingen').value.trim());
+
+    // Versturen naar Google Forms (no-cors: inzending lukt, antwoord is niet leesbaar)
+    fetch(GOOGLE_FORM_ACTION, { method:'POST', mode:'no-cors', body:data })
+      .catch(function(){ /* netwerk-/CORS-melding negeren: inzending is alsnog verstuurd */ });
+
+    // Toon altijd het bedankscherm
+    document.getElementById('overlay').classList.add('show');
+    this.reset();
+    attendingFields.classList.add('hidden');
+  });
+</script>
+
+</body>
+</html>

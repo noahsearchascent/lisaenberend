@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lisa &amp; Berend — 11 oktober 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Pinyon+Script&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --dusty-pink:#c9a09a;
+    --dusty-rose:#b07d72;
+    --chocolate:#5e4438;
+    --mocha:#8a6d5c;
+    --light-grey:#b9b3aa;
+    --rose-accent:#b07d72;
+    --cream:#f6f1ea;
+    --cream-2:#efe8df;
+    --beige:#e9e0d4;
+    --ink:#4a4038;
+    --muted:#7d7268;
+    --line:#d8cdbe;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Montserrat',sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    font-weight:300;
+    line-height:1.7;
+    font-size:14px;
+  }
+  h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:500;}
+  .script{font-family:'Pinyon Script',cursive;font-weight:400;}
+  .section{padding:64px 24px;}
+  .wrap{max-width:1040px;margin:0 auto;}
+  .center{text-align:center;}
+
+  /* Section titles */
+  .section-title{
+    font-size:34px;letter-spacing:6px;text-transform:uppercase;text-align:center;
+    color:var(--ink);font-weight:500;
+  }
+  .heart-divider{
+    text-align:center;color:var(--rose-accent);margin:6px 0 28px;font-size:13px;letter-spacing:6px;
+  }
+  .heart-divider::before{content:"— ♥ —";}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;min-height:640px;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(rgba(70,80,70,.18),rgba(70,80,70,.30)),
+      url('images/home.jpg') center/cover no-repeat;
+    text-align:center;color:#3a342c;
+  }
+  .hero-card{
+    background:rgba(248,244,237,.78);
+    border:1px solid rgba(255,255,255,.6);
+    padding:42px 70px;border-radius:2px;
+    backdrop-filter:blur(2px);
+    box-shadow:0 10px 40px rgba(0,0,0,.15);
+  }
+  .hero-card .bruiloft{font-family:'Cormorant Garamond',serif;letter-spacing:4px;font-size:18px;color:#5a5247;margin-bottom:4px;}
+  .hero-card .names{font-family:'Pinyon Script',cursive;font-size:62px;line-height:1.05;color:#4a4038;margin:2px 0;}
+  .hero-card .amp{font-family:'Pinyon Script',cursive;font-size:30px;color:var(--rose-accent);margin:2px 0;}
+  .hero-date{
+    display:inline-block;background:var(--rose-accent);color:#fff;letter-spacing:5px;
+    font-family:'Cormorant Garamond',serif;font-size:19px;padding:6px 26px;margin:18px 0 10px;border-radius:1px;
+  }
+  .hero-loc{font-family:'Cormorant Garamond',serif;letter-spacing:4px;font-size:15px;color:#5a5247;text-transform:uppercase;}
+  .btn{
+    display:inline-block;background:var(--rose-accent);color:#fff;border:none;cursor:pointer;
+    font-family:'Montserrat',sans-serif;letter-spacing:3px;text-transform:uppercase;font-size:12px;
+    padding:11px 34px;margin-top:12px;text-decoration:none;transition:background .25s;
+  }
+  .btn:hover{background:#9a6a5f;}
+
+  /* ---------- WELKOM ---------- */
+  .welkom{background:var(--cream);position:relative;overflow:hidden;}
+  .welkom .flower-left{position:absolute;left:40px;top:90px;width:170px;opacity:.5;}
+  .welkom p{max-width:680px;margin:0 auto 16px;text-align:center;color:var(--muted);}
+  .welkom .signoff{font-family:'Pinyon Script',cursive;font-size:30px;color:var(--ink);margin-top:18px;}
+
+  /* ---------- LOCATIE ---------- */
+  .locatie{background:var(--cream-2);}
+  .locatie .sub{font-family:'Pinyon Script',cursive;font-size:32px;color:var(--rose-accent);text-align:center;margin-top:2px;}
+  .loc-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:36px;align-items:center;margin-top:36px;}
+  .loc-photos{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+  .loc-photos img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:2px;}
+  .loc-info{text-align:center;color:var(--muted);}
+  .loc-info .pin{color:var(--rose-accent);margin:18px 0 8px;display:flex;justify-content:center;}
+  .loc-info .pin svg{width:26px;height:26px;}
+  .loc-info .addr-label{font-family:'Cormorant Garamond',serif;letter-spacing:2px;font-size:17px;color:var(--ink);}
+
+  /* ---------- PROGRAMMA ---------- */
+  .programma{background:var(--cream);}
+  .timeline{display:flex;justify-content:space-between;align-items:flex-start;max-width:920px;margin:36px auto 0;flex-wrap:wrap;gap:10px;}
+  .tl-item{flex:1;min-width:120px;text-align:center;position:relative;}
+  .tl-item .ic{color:var(--rose-accent);height:42px;display:flex;align-items:center;justify-content:center;}
+  .tl-item .ic svg{width:32px;height:32px;}
+  /* Lucide line-icons: thin, elegant stroke that inherits the rose accent */
+  [data-lucide],svg.lucide{stroke-width:1.3;}
+  .tl-item .time{font-family:'Cormorant Garamond',serif;font-size:20px;margin-top:10px;color:var(--ink);}
+  .tl-item .lbl{color:var(--muted);font-size:13px;}
+  .tl-item:not(:last-child)::after{content:"";position:absolute;top:21px;right:0;transform:translateX(50%);width:38%;height:1px;background:var(--rose-accent);opacity:.4;}
+
+  /* ---------- DRESSCODE ---------- */
+  .dresscode{background:var(--cream-2);}
+  .dresscode .intro{max-width:720px;margin:0 auto 30px;text-align:center;color:var(--muted);}
+  .moodboard-frame{margin:0 auto 36px;padding:10px;background:var(--cream);border:1px solid #e3d9cc;box-shadow:0 14px 40px rgba(94,68,56,.12);}
+  .moodboard-frame img{width:100%;display:block;}
+  .moodboard-cap{text-align:center;color:var(--muted);font-size:12px;letter-spacing:2px;text-transform:uppercase;margin:10px 0 2px;}
+  .dc-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .dc-card{background:var(--cream);border:1px solid #e3d9cc;padding:22px;}
+  .dc-card h3{font-size:30px;letter-spacing:4px;text-align:center;color:var(--chocolate);}
+  .dc-card .who{text-align:center;letter-spacing:5px;font-size:12px;color:var(--muted);margin-bottom:16px;text-transform:uppercase;}
+  .palette{display:flex;justify-content:center;gap:14px;margin-bottom:18px;flex-wrap:wrap;}
+  .swatch{text-align:center;font-size:8px;letter-spacing:1px;color:var(--muted);text-transform:uppercase;}
+  .swatch .dot{width:34px;height:34px;border-radius:50%;margin:0 auto 4px;border:1px solid rgba(0,0,0,.08);}
+  .dc-photos{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:6px;}
+  .dc-photos img{width:100%;height:96px;object-fit:cover;border-radius:1px;}
+  .dc-photos.shoes img{height:60px;}
+  .dc-rules{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:16px;}
+  .dc-rules h4{font-size:15px;letter-spacing:1px;color:var(--ink);margin-bottom:8px;font-family:'Montserrat',sans-serif;font-weight:500;}
+  .dc-rules ul{list-style:none;}
+  .dc-rules li{font-size:12px;color:var(--muted);margin-bottom:10px;padding-left:18px;position:relative;line-height:1.5;}
+  .dc-rules .do li::before{content:"✓";position:absolute;left:0;color:#7d9b6f;font-weight:bold;}
+  .dc-rules .dont li::before{content:"✕";position:absolute;left:0;color:#b56a5e;font-weight:bold;}
+
+  /* ---------- MENU ---------- */
+  .menu{background:var(--beige);}
+  .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px;}
+  .menu-card{border:1px solid #d6c9b6;padding:0 0 22px;text-align:center;background:rgba(255,255,255,.25);overflow:hidden;}
+  .menu-photo{width:100%;height:160px;object-fit:cover;display:block;margin-bottom:18px;}
+  .menu-card h4{margin-top:0;}
+  .menu-card h4{font-size:15px;letter-spacing:3px;color:var(--ink);text-transform:uppercase;margin-bottom:16px;font-family:'Cormorant Garamond',serif;font-weight:600;padding:0 18px;}
+  .menu-card .course{color:var(--muted);font-size:12.5px;margin-bottom:14px;line-height:1.6;padding:0 18px;}
+  .menu-card .course:last-child{margin-bottom:0;}
+  .menu-of{font-family:'Pinyon Script',cursive;color:var(--rose-accent);font-size:22px;line-height:1;margin:2px 0 14px;}
+  .menu-note{max-width:740px;margin:26px auto 0;text-align:center;color:var(--muted);font-size:13px;}
+
+  /* ---------- INFO BLOCKS ---------- */
+  .info{background:var(--cream);}
+  .info-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1.3fr;gap:1px;background:#ddd0bf;border:1px solid #ddd0bf;}
+  .info-cell{background:var(--cream);padding:28px 22px;text-align:center;}
+  .info-cell h4{letter-spacing:3px;font-size:13px;text-transform:uppercase;color:var(--ink);margin-bottom:14px;font-family:'Cormorant Garamond',serif;font-weight:600;}
+  .info-cell p{color:var(--muted);font-size:12.5px;margin-bottom:8px;}
+  .avatar{width:62px;height:62px;border-radius:50%;object-fit:cover;margin:0 auto 12px;display:block;}
+  .info-cell .name{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--ink);}
+  .gift-ic{color:var(--rose-accent);margin-bottom:10px;display:flex;justify-content:center;}
+  .gift-ic svg{width:30px;height:30px;}
+  .faq{text-align:left;}
+  .faq h4{text-align:center;}
+  .faq ol{list-style:none;counter-reset:f;}
+  .faq li{counter-increment:f;font-size:12.5px;color:var(--muted);padding:7px 22px 7px 22px;position:relative;border-bottom:1px solid #eadfce;}
+  .faq li::before{content:counter(f) ".";position:absolute;left:0;color:var(--ink);}
+  .faq li::after{content:"+";position:absolute;right:4px;color:var(--rose-accent);font-size:15px;}
+
+  /* ---------- FOOTER ---------- */
+  .footer{
+    background:linear-gradient(rgba(160,110,100,.92),rgba(150,100,92,.95)),
+      url('https://placehold.co/1600x400/9a6a5f/9a6a5f?text=+') center/cover;
+    color:#f7efe9;text-align:center;padding:46px 24px 20px;
+  }
+  .footer .date{letter-spacing:5px;font-family:'Cormorant Garamond',serif;font-size:15px;border-bottom:1px solid rgba(255,255,255,.35);display:inline-block;padding-bottom:6px;margin-bottom:10px;}
+  .footer .names{font-family:'Pinyon Script',cursive;font-size:48px;line-height:1;margin:4px 0;}
+  .footer .loc{letter-spacing:4px;font-family:'Cormorant Garamond',serif;font-size:14px;text-transform:uppercase;margin-top:6px;}
+  .footer nav{margin-top:26px;display:flex;justify-content:center;gap:26px;flex-wrap:wrap;}
+  .footer nav a{color:#f7efe9;text-decoration:none;letter-spacing:2px;font-size:11px;text-transform:uppercase;opacity:.9;}
+  .footer nav a:hover{opacity:1;text-decoration:underline;}
+
+  @media(max-width:780px){
+    .loc-grid,.dc-cols,.menu-grid,.info-grid{grid-template-columns:1fr;}
+    .loc-photos{grid-template-columns:repeat(2,1fr);}
+    .hero-card{padding:32px 28px;}
+    .hero-card .names{font-size:46px;}
+    .timeline{gap:20px;}
+    .tl-item:not(:last-child)::after{display:none;}
+    .dc-photos{grid-template-columns:repeat(3,1fr);}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header class="hero" id="home">
+  <div class="hero-card">
+    <div class="bruiloft">Bruiloft van</div>
+    <div class="names">Lisa Beelen</div>
+    <div class="amp">&amp;</div>
+    <div class="names">Berend Hoornweg</div>
+    <div class="hero-date">11 • 10 • 2026</div>
+    <div class="hero-loc">Kasteel Hooge Vuursche</div>
+    <a href="rsvp.html" class="btn">RSVP</a>
+  </div>
+</header>
+
+<!-- ===== WELKOM ===== -->
+<section class="section welkom" id="welkom">
+  <img class="flower-left" src="images/linedrawing.png" alt="">
+  <div class="wrap">
+    <h2 class="section-title">Welkom</h2>
+    <div class="heart-divider"></div>
+    <p>Lieve familie en vrienden,<br>Wat zijn we blij dat jullie deel uitmaken van deze bijzondere periode in ons leven.</p>
+    <p>Op 11 oktober 2026 geven wij elkaar het jawoord en we kunnen niet wachten om deze dag samen met jullie te vieren.</p>
+    <p>Via deze website vinden jullie alle informatie rondom onze bruiloft. Van het programma van de dag tot praktische details en antwoorden op veelgestelde vragen. Zo hopen we iedereen goed voor te bereiden op een onvergetelijke dag.</p>
+    <p>Voor onze trouwdag hebben we gekozen voor een prachtige locatie die perfect past bij wie wij zijn en bij de sfeer die we graag met jullie willen beleven. Een plek waar liefde, gezelligheid en samenzijn centraal staan: Kasteel Hooge Vuursche.</p>
+    <p>Bovenal kijken we ernaar uit om onze liefde te vieren met de mensen die ons het dierbaarst zijn. Jullie aanwezigheid maakt deze dag voor ons compleet en we voelen ons ontzettend gelukkig dat we dit bijzondere moment met jullie mogen delen.</p>
+    <p>Daarom willen we jullie vragen om vóór 1 augustus 2026 het RSVP-formulier in te vullen.</p>
+    <p>Veel liefs,</p>
+    <div class="signoff center">Lisa &amp; Berend &nbsp;♡</div>
+  </div>
+</section>
+
+<!-- ===== LOCATIE ===== -->
+<section class="section locatie" id="locatie">
+  <div class="wrap">
+    <h2 class="section-title">Onze locatie</h2>
+    <div class="sub script">Kasteel Hooge Vuursche</div>
+    <div class="loc-grid">
+      <div class="loc-photos">
+        <img src="images/locatie-1.jpg" alt="Luchtfoto Kasteel Hooge Vuursche in het najaarsbos">
+        <img src="images/locatie-2.jpg" alt="Sfeervolle kamer met balkon op het kasteel">
+        <img src="images/locatie-3.jpg" alt="Kasteel Hooge Vuursche in de avondschemering">
+        <img src="images/locatie-4.jpg" alt="Feestavond in de zaal van het kasteel">
+      </div>
+      <div class="loc-info">
+        <p>Een sprookjesachtige locatie midden in de bossen van Baarn. Van ceremonie tot feest vindt de volledige dag plaats op het landgoed.</p>
+        <div class="pin"><i data-lucide="map-pin"></i></div>
+        <div class="addr-label">Adres</div>
+        <p>Hilversumsestraatweg 14<br>3744 KC Baarn</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROGRAMMA ===== -->
+<section class="section programma" id="programma">
+  <div class="wrap">
+    <h2 class="section-title">Programma</h2>
+    <div class="heart-divider"></div>
+    <div class="timeline">
+      <div class="tl-item"><div class="ic"><i data-lucide="wine"></i></div><div class="time">13:30</div><div class="lbl">Ontvangst</div></div>
+      <div class="tl-item"><div class="ic"><i data-lucide="heart-handshake"></i></div><div class="time">14:00</div><div class="lbl">Ceremonie</div></div>
+      <div class="tl-item"><div class="ic"><i data-lucide="cake"></i></div><div class="time">15:00</div><div class="lbl">Toast &amp; taart</div></div>
+      <div class="tl-item"><div class="ic"><i data-lucide="utensils-crossed"></i></div><div class="time">17:00</div><div class="lbl">Diner</div></div>
+      <div class="tl-item"><div class="ic"><i data-lucide="music"></i></div><div class="time">20:30</div><div class="lbl">Feestavond</div></div>
+      <div class="tl-item"><div class="ic"><i data-lucide="sparkles"></i></div><div class="time">00:30</div><div class="lbl">Einde feest</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DRESSCODE ===== -->
+<section class="section dresscode" id="dresscode">
+  <div class="wrap">
+    <h2 class="section-title">Dresscode</h2>
+    <p class="intro">De afgelopen maanden hebben we al veel vragen gehad over de dresscode van de bruiloft. We hopen deze vragen dan ook beantwoord te hebben met het kleurenpalet, de do's en don'ts en het moodboard. Wil je hulp bij het vinden van een outfit? Wij denken met liefde met je mee.</p>
+    <div class="moodboard-frame">
+      <img src="images/moodboard.png" alt="Moodboard dresscode Cocktail Chic — Dames en Heren">
+    </div>
+    <div class="dc-cols">
+
+      <!-- DAMES -->
+      <div class="dc-card">
+        <h3>Cocktail Chic</h3>
+        <div class="who">Dames</div>
+        <div class="dc-rules">
+          <div class="do">
+            <h4>Do's</h4>
+            <ul>
+              <li>Een cocktail jurk, midi jurk, maxi jurken, chique jumpsuit of broekpakken met hakken, elegante sandalen of nette flats.</li>
+              <li>De kleuren van het kleurenpalet zijn toegestaan.</li>
+            </ul>
+          </div>
+          <div class="dont">
+            <h4>Don'ts</h4>
+            <ul>
+              <li>Wit/off white/ivoor of andere kleuren die buiten het kleurenpalet vallen.</li>
+              <li>Sneakers.</li>
+              <li>Spijkerbroek of andere casual opties.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- HEREN -->
+      <div class="dc-card">
+        <h3>Cocktail Chic</h3>
+        <div class="who">Heren</div>
+        <div class="dc-rules">
+          <div class="do">
+            <h4>Do's</h4>
+            <ul>
+              <li>Volledig pak, nette combinatie pantalon, overhemd en colbert.</li>
+              <li>Nette loafers, gespschoen of nette veterschoenen.</li>
+              <li>De kleuren van het kleurenpalet zijn toegestaan.</li>
+            </ul>
+          </div>
+          <div class="dont">
+            <h4>Don'ts</h4>
+            <ul>
+              <li>Donkergroen of kleuren die buiten het kleurenpalet vallen (accenten of accessoires in andere kleuren mogen uiteraard wel, zolang het niet de overhand neemt).</li>
+              <li>Spijkerbroek, t-shirt, overhemd met korte mouwen, lompe schoenen, sneakers, slippers of sportschoenen.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== MENU ===== -->
+<section class="section menu" id="menu">
+  <div class="wrap">
+    <h2 class="section-title">Menu</h2>
+    <div class="heart-divider"></div>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <img class="menu-photo" src="images/Voorgerecht.jpg" alt="Voorgerecht">
+        <h4>Voorgerecht</h4>
+        <div class="course">Carpaccio van ossenhaas | kruidensla | Parmezaan schuim | rucola pesto</div>
+        <div class="menu-of">of</div>
+        <div class="course">Gerookte worteltartaar | spongecake peterselie | olijftuille | gepoft ingelegde sjalot | vegan kaas</div>
+      </div>
+      <div class="menu-card">
+        <img class="menu-photo" src="images/Hoofdgerecht.jpg" alt="Hoofdgerecht">
+        <h4>Hoofdgerecht</h4>
+        <div class="course">Parelhoen rouleau | krokante kaaskorst | polenta met chorizo | romige mosterdjus</div>
+        <div class="menu-of">of</div>
+        <div class="course">Raviolli met pompoen en truffel | beurre noisette | hazelnoot | roodlof</div>
+      </div>
+      <div class="menu-card">
+        <img class="menu-photo" src="images/Nagerecht.jpg" alt="Nagerecht">
+        <h4>Nagerecht</h4>
+        <div class="course">Panna cotta | seizoensfruit | flexibele chocolade | krokante karamel</div>
+        <div class="menu-of">of</div>
+        <div class="course">Bombe van champagne mousse | witte chocolade | seizoensfruit | passievrucht sorbet</div>
+      </div>
+    </div>
+    <p class="menu-note">Het menu voor het diner bestaat bij elke gang uit twee opties. Graag bij het formulier bij aanmelden doorgeven welke gerechten je graag wil eten tijdens het diner. In het formulier kan je ook aangeven over allergieën.</p>
+  </div>
+</section>
+
+<!-- ===== INFO BLOCKS ===== -->
+<section class="section info" id="info">
+  <div class="wrap">
+    <div class="info-grid">
+      <div class="info-cell">
+        <h4>Ceremoniemeester</h4>
+        <img class="avatar" src="images/ceremoniemeester.jpg" alt="Ceremoniemeester Maxime">
+        <p>Voor vragen op de dag zelf kun je contact opnemen met:</p>
+        <div class="name">Maxime</div>
+        <p>+34 657 894 842</p>
+      </div>
+      <div class="info-cell" id="rsvp">
+        <h4>RSVP</h4>
+        <p>Laat vóór 1 augustus 2026 weten of je erbij kunt zijn!</p>
+        <a href="rsvp.html" class="btn">RSVP Formulier</a>
+        <p style="margin-top:14px;color:var(--rose-accent);">♡</p>
+      </div>
+      <div class="info-cell">
+        <h4>Cadeauwensen</h4>
+        <div class="gift-ic"><i data-lucide="gift"></i></div>
+        <p>Wij sparen voor mooie toekomstplannen. Een bijdrage daaraan waarderen wij enorm.</p>
+        <p style="color:var(--rose-accent);">♡</p>
+      </div>
+      <div class="info-cell faq">
+        <h4>Veelgestelde vragen</h4>
+        <ol>
+          <li>Wat moet ik zelf regelen?</li>
+          <li>Kan ik overnachten?</li>
+          <li>Wat als ik graag iets wil zeggen tijdens de bruiloft?</li>
+          <li>Is de bruiloft binnen of buiten?</li>
+          <li>Mag ik een +1 meenemen naar de bruiloft?</li>
+          <li>Zijn onze kinderen welkom?</li>
+          <li>Wat zijn de parkeermogelijkheden?</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="date">11 oktober 2026</div>
+  <div class="names script">Lisa &amp; Berend</div>
+  <div class="loc">Kasteel Hooge Vuursche</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#programma">Programma</a>
+    <a href="#locatie">Locatie</a>
+    <a href="#dresscode">Dresscode</a>
+    <a href="#menu">Menu</a>
+    <a href="#rsvp">RSVP</a>
+    <a href="#info">Praktische info</a>
+  </nav>
+</footer>
+
+<!-- Lucide line-icon library -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>lucide.createIcons();</script>
+
+</body>
+</html>
