@@ -186,8 +186,12 @@
   .countdown-bar .cu span:first-child{font-size:20px;font-weight:500;}
   .countdown-bar .cu span:last-child{font-size:10px;letter-spacing:2px;opacity:.85;text-transform:uppercase;font-family:'Montserrat',sans-serif;}
 
-  @media(max-width:780px){
+  /* Bloem verbergen op tablet en mobile */
+  @media(max-width:1024px){
     .welkom .flower-left{display:none;}
+  }
+
+  @media(max-width:780px){
     .loc-grid,.dc-cols,.menu-grid,.info-grid{grid-template-columns:1fr;}
     .loc-photos{grid-template-columns:repeat(2,1fr);}
     .hero-card{padding:32px 28px;}
