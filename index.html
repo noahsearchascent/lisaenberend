@@ -181,7 +181,15 @@
   .footer nav a{color:#f7efe9;text-decoration:none;letter-spacing:2px;font-size:11px;text-transform:uppercase;opacity:.9;}
   .footer nav a:hover{opacity:1;text-decoration:underline;}
 
+  /* ---------- AFTELBALK ---------- */
+  .countdown-bar{background:var(--rose-accent);color:#fff;text-align:center;padding:10px 16px;font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:2px;}
+  .countdown-bar .countdown-units{display:inline-flex;gap:18px;margin-left:10px;font-size:14px;letter-spacing:1px;}
+  .countdown-bar .cu{display:inline-flex;flex-direction:column;align-items:center;line-height:1.2;}
+  .countdown-bar .cu span:first-child{font-size:20px;font-weight:500;}
+  .countdown-bar .cu span:last-child{font-size:10px;letter-spacing:2px;opacity:.85;text-transform:uppercase;font-family:'Montserrat',sans-serif;}
+
   @media(max-width:780px){
+    .welkom .flower-left{display:none;}
     .loc-grid,.dc-cols,.menu-grid,.info-grid{grid-template-columns:1fr;}
     .loc-photos{grid-template-columns:repeat(2,1fr);}
     .hero-card{padding:32px 28px;}
@@ -193,6 +201,16 @@
 </style>
 </head>
 <body>
+
+<!-- ===== AFTELBALK ===== -->
+<div class="countdown-bar">
+  Nog <span class="countdown-units" id="countdown">
+    <span class="cu"><span id="cd-d">—</span><span>dagen</span></span>
+    <span class="cu"><span id="cd-h">—</span><span>uur</span></span>
+    <span class="cu"><span id="cd-m">—</span><span>min</span></span>
+    <span class="cu"><span id="cd-s">—</span><span>sec</span></span>
+  </span> tot de RSVP deadline (11 augustus)
+</div>
 
 <!-- ===== HERO ===== -->
 <header class="hero" id="home">
@@ -470,6 +488,24 @@
 <!-- Lucide line-icon library -->
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script>lucide.createIcons();</script>
+<script>
+  (function(){
+    var target = new Date('2026-08-11T00:00:00');
+    function tick(){
+      var diff = target - new Date();
+      if(diff <= 0){ document.querySelector('.countdown-bar').textContent = 'De RSVP deadline is verstreken'; return; }
+      var d = Math.floor(diff/86400000);
+      var h = Math.floor((diff%86400000)/3600000);
+      var m = Math.floor((diff%3600000)/60000);
+      var s = Math.floor((diff%60000)/1000);
+      document.getElementById('cd-d').textContent = d;
+      document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
+      document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
+      document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
+    }
+    tick(); setInterval(tick,1000);
+  })();
+</script>
 
 </body>
 </html>
