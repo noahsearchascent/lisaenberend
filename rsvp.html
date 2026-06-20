@@ -76,7 +76,6 @@
   .opt-card{
     display:block;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--cream);transition:all .2s;height:100%;
   }
-  .opt-card img{width:100%;height:96px;object-fit:cover;display:block;}
   .opt-body{display:block;padding:14px 18px 16px;}
   .opt-tag{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--rose-accent);margin-bottom:3px;}
   .opt-name{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--ink);line-height:1.25;}
@@ -122,8 +121,8 @@
     .rsvp-hero h1{font-size:24px;letter-spacing:5px;}
   }
 
-  .countdown-bar{background:var(--rose-accent);color:#fff;text-align:center;padding:10px 16px;font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:2px;}
-  .countdown-bar .countdown-units{display:inline-flex;gap:18px;margin-left:10px;font-size:14px;letter-spacing:1px;}
+  .countdown-bar{background:var(--rose-accent);color:#fff;text-align:center;padding:10px 16px;font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:2px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:4px 8px;}
+  .countdown-bar .countdown-units{display:inline-flex;gap:18px;font-size:14px;letter-spacing:1px;}
   .countdown-bar .cu{display:inline-flex;flex-direction:column;align-items:center;line-height:1.2;}
   .countdown-bar .cu span:first-child{font-size:20px;font-weight:500;}
   .countdown-bar .cu span:last-child{font-size:10px;letter-spacing:2px;opacity:.85;text-transform:uppercase;font-family:'Montserrat',sans-serif;}
@@ -138,7 +137,7 @@
     <span class="cu"><span id="cd-h">—</span><span>uur</span></span>
     <span class="cu"><span id="cd-m">—</span><span>min</span></span>
     <span class="cu"><span id="cd-s">—</span><span>sec</span></span>
-  </span> tot de RSVP deadline (11 augustus)
+  </span> tot de bruiloft
 </div>
 
 <header class="rsvp-hero">
@@ -183,11 +182,11 @@
             <div class="opts">
               <label class="opt">
                 <input type="radio" name="voorgerecht" value="Carpaccio van ossenhaas">
-                <span class="opt-card"><img src="images/Voorgerecht.jpg" alt=""><span class="opt-body"><span class="opt-tag">Optie 1</span><span class="opt-name">Carpaccio van ossenhaas</span></span></span>
+                <span class="opt-card"><span class="opt-body"><span class="opt-tag">Optie 1</span><span class="opt-name">Carpaccio van ossenhaas</span></span></span>
               </label>
               <label class="opt">
                 <input type="radio" name="voorgerecht" value="Gerookte worteltartaar">
-                <span class="opt-card"><img src="images/Voorgerecht.jpg" alt=""><span class="opt-body"><span class="opt-tag">Optie 2</span><span class="opt-name">Gerookte worteltartaar</span></span></span>
+                <span class="opt-card"><span class="opt-body"><span class="opt-tag">Optie 2</span><span class="opt-name">Gerookte worteltartaar</span></span></span>
               </label>
             </div>
           </div>
@@ -197,11 +196,11 @@
             <div class="opts">
               <label class="opt">
                 <input type="radio" name="hoofdgerecht" value="Parelhoen rouleau">
-                <span class="opt-card"><img src="images/Hoofdgerecht.jpg" alt=""><span class="opt-body"><span class="opt-tag">Optie 1</span><span class="opt-name">Parelhoen rouleau</span></span></span>
+                <span class="opt-card"><span class="opt-body"><span class="opt-tag">Optie 1</span><span class="opt-name">Parelhoen rouleau</span></span></span>
               </label>
               <label class="opt">
                 <input type="radio" name="hoofdgerecht" value="Ravioli met pompoen en truffel">
-                <span class="opt-card"><img src="images/Hoofdgerecht.jpg" alt=""><span class="opt-body"><span class="opt-tag">Optie 2</span><span class="opt-name">Ravioli met pompoen en truffel</span></span></span>
+                <span class="opt-card"><span class="opt-body"><span class="opt-tag">Optie 2</span><span class="opt-name">Ravioli met pompoen en truffel</span></span></span>
               </label>
             </div>
           </div>
@@ -211,11 +210,11 @@
             <div class="opts">
               <label class="opt">
                 <input type="radio" name="nagerecht" value="Panna cotta">
-                <span class="opt-card"><img src="images/Nagerecht.jpg" alt=""><span class="opt-body"><span class="opt-tag">Optie 1</span><span class="opt-name">Panna cotta</span></span></span>
+                <span class="opt-card"><span class="opt-body"><span class="opt-tag">Optie 1</span><span class="opt-name">Panna cotta</span></span></span>
               </label>
               <label class="opt">
                 <input type="radio" name="nagerecht" value="Bombe van champagne mousse">
-                <span class="opt-card"><img src="images/Nagerecht.jpg" alt=""><span class="opt-body"><span class="opt-tag">Optie 2</span><span class="opt-name">Bombe van champagne mousse</span></span></span>
+                <span class="opt-card"><span class="opt-body"><span class="opt-tag">Optie 2</span><span class="opt-name">Bombe van champagne mousse</span></span></span>
               </label>
             </div>
           </div>
@@ -320,10 +319,10 @@
 
 <script>
   (function(){
-    var target = new Date('2026-08-11T00:00:00');
+    var target = new Date('2026-10-11T00:00:00');
     function tick(){
       var diff = target - new Date();
-      if(diff <= 0){ document.querySelector('.countdown-bar').textContent = 'De RSVP deadline is verstreken'; return; }
+      if(diff <= 0){ document.querySelector('.countdown-bar').textContent = 'Vandaag is het zover — Lisa & Berend'; return; }
       var d = Math.floor(diff/86400000);
       var h = Math.floor((diff%86400000)/3600000);
       var m = Math.floor((diff%3600000)/60000);
